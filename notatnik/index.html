@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notatnik</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 2.5em;
+            color: #4CAF50;
+        }
+
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        #addNoteForm {
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .category {
+            background: #fff;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .note-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .edit-btn {
+            background-color: #2196F3;
+        }
+
+        .edit-btn:hover {
+            background-color: #0b7dda;
+        }
+
+        .delete-btn {
+            background-color: #f44336;
+        }
+
+        .delete-btn:hover {
+            background-color: #d32f2f;
+        }
+
+        .cancel-btn {
+            background-color: #9e9e9e;
+        }
+
+        .cancel-btn:hover {
+            background-color: #757575;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        li {
+            background-color: #ffffff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .empty-note {
+            color: #888;
+            font-style: italic;
+            text-align: center;
+            box-shadow: none;
+            background-color: transparent;
+        }
+
+        /* Highlight animation for newly added notes */
+        @keyframes highlightNote {
+            0% { background-color: #fffacd; box-shadow: 0 0 15px rgba(255, 215, 0, 0.7); }
+            100% { background-color: #ffffff; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+        }
+
+        .highlight-note {
+            animation: highlightNote 3s ease;
+            border-left: 4px solid #4CAF50;
+        }
+
+        li strong {
+            font-size: 1.2em;
+            color: #4CAF50;
+        }
+
+        li p {
+            font-size: 1em;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #777;
+        }
+
+        .form-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: modalFadeIn 0.3s;
+        }
+
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-20px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+        }
+
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #555;
+        }
+
+        .modal-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Notatnik</h1>
+
+    <div id="addNoteForm">
+        <h2>Dodaj nową notatkę</h2>
+        <form id="addNoteForm">
+            <input type="text" id="title" placeholder="Tytuł" required><br><br>
+            <textarea id="content" placeholder="Treść" required></textarea><br>
+            <select id="category">
+                <option value="szkola">Szkoła</option>
+                <option value="praca">Praca</option>
+                <option value="dom">Dom</option>
+            </select> <br><br>
+            <button type="submit">Dodaj notatkę</button>
+        </form>
+    </div>
+
+    <div class="category">
+        <h3>📚 Szkoła</h3>
+        <ul id="notes-szkola"></ul>
+    </div>
+    <div class="category">
+        <h3>💼 Praca</h3>
+        <ul id="notes-praca"></ul>
+    </div>
+    <div class="category">
+        <h3>🏠 Dom</h3>
+        <ul id="notes-dom"></ul>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edytuj notatkę</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="editNoteForm">
+                <input type="hidden" id="editNoteId" value="">
+                <input type="text" id="editTitle" placeholder="Tytuł" required><br><br>
+                <textarea id="editContent" placeholder="Treść" required></textarea><br>
+                <select id="editCategory">
+                    <option value="szkola">Szkoła</option>
+                    <option value="praca">Praca</option>
+                    <option value="dom">Dom</option>
+                </select> <br><br>
+                <div class="modal-buttons">
+                    <button type="button" class="cancel-btn" id="cancelEditBtn">Anuluj</button>
+                    <button type="submit" class="edit-btn">Zapisz zmiany</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>Notatnik! 💚</p>
+    </footer>
+
+    <script type="text/javascript" src="script-fixed.js"></script>
+</body>
+</html>
+
