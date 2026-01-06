@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">2025_09_17_cwiczenie</string>
+    <string name="imie">podaj imie</string>
+    <string name="telefon">wpisz numer telefonu\n</string>
+    <string name="srednia">wpisz swoja srednia ocen</string>
+    <string name="data">wpisz swoja date urodzin</string>
+    <string name="ksywka">Wpisz swoja ksywke</string>
+    <string name="mail">wspisz swoj email</string>
+    <string name="wiek">podaj swoj wiek</string>
+    <string name="hasllo">wpisz swoje haslo</string>
+    <string name="godzina">Wpisz godzine pobudki</string>
+    <string name="hobby">wypisz swoje zainteresowania</string>
+</resources>

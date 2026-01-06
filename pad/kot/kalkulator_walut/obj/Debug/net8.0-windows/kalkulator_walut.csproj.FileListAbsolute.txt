@@ -1,0 +1,4 @@
+C:\Users\uczen\Desktop\kot\kalkulator_walut\obj\Debug\net8.0-windows\MainWindow.g.cs
+C:\Users\uczen\Desktop\kot\kalkulator_walut\obj\Debug\net8.0-windows\App.g.cs
+C:\Users\uczen\Desktop\kot\kalkulator_walut\obj\Debug\net8.0-windows\kalkulator_walut_MarkupCompile.cache
+C:\Users\uczen\Desktop\kot\kalkulator_walut\obj\Debug\net8.0-windows\kalkulator_walut_MarkupCompile.lref

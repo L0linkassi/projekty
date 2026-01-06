@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">2025_09_17_haslo</string>
+    <string name="haslo">Zmień hasło</string>
+    <string name="currHaslo" />
+    <string name="cuHaslo">Obecne haslo</string>
+    <string name="newHaslo">nowe haslo</string>
+    <string name="curHaslo">Podaj obecne haslo</string>
+</resources>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:onClick="onClickMainActivity2"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFC107"
+        android:text="Podaj swoje dane"
+        android:textAlignment="center"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#03A9F4" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Imię:"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/TVImie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Podaj Imię"
+        android:inputType="text"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Wiek:"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/TVWiek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Ile masz lat"
+        android:inputType="text"
+        android:minHeight="48dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="OnClickMainActivity2"
+        android:text="WYŚLIJ"
+        android:textSize="48sp" />
+</LinearLayout>

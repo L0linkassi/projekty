@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/textView_naglowek"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#009688"
+        android:text="@string/haslo"
+        android:textAlignment="center"
+        android:textColor="#263238"
+        android:textColorLink="#000000"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView_obecneHaslo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/curHaslo" />
+
+    <EditText
+        android:id="@+id/editText_obecneHaslo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/cuHaslo"
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/textView_noweHaslo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Podaj nowe hasło:" />
+
+    <EditText
+        android:id="@+id/editText_noweHaslo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/newHaslo"
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
+
+    <TextView
+        android:id="@+id/textView_powtorzNoweHaslo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Podaj nowe hasło:" />
+
+    <EditText
+        android:id="@+id/editText_powtorzNoweHaslo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/newHaslo"
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="zmien"
+        android:text="Zmien" />
+
+    <TextView
+        android:id="@+id/textView_komunikaty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="id: 09876543212"
+        android:textAlignment="center" />
+</LinearLayout>
